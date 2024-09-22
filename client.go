@@ -34,6 +34,11 @@ func (c *Client) Close() error {
 	return c.cli.Close()
 }
 
+// Target returns the target string of the ClientConn.
+func (c *Client) Target() string {
+	return c.cli.Target()
+}
+
 // WalletClient returns the wallet client
 // If you need to call other RPCs, you can use this to get the client
 func (c *Client) WalletClient() api.WalletClient {
