@@ -5,11 +5,11 @@ git submodule update --init --recursive
 git submodule foreach git pull origin master
 
 # check if there are changes
-if [[ -n $(git status -s) ]]; then
+if [[ -n $(git submodule summary) ]]; then
   echo "detected submodule update, commit changes..."
   git config --global user.name 'GitHub Action'
   git config --global user.email 'action@github.com'
-  sh generate.sh && git commit -m "auto update submodule" && git push
+  ./generate.sh && git add . && git commit -m "auto update submodule" && git push
 else
   echo "no submodule update detected"
 fi
