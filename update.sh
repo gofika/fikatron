@@ -2,7 +2,6 @@
 
 # check and update submodule
 git submodule update --init --recursive
-git submodule foreach git pull origin master
 
 # check if there are changes
 if [[ -n $(git submodule summary) ]]; then
